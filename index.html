@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ahorcado</title>
+	 <link rel="stylesheet" type="text/css" href="css/estilo.css">
+   <script src="js/jquery-3.4.1.min.js"></script>
+   <script src="js/popper.min.js"></script>
+   <script src="js/bootstrap.min.js" type="text/javascript"></script>
+     <meta charset="utf-8">
+</head>
+<body style="background-color: violet" >
+<div id="rectangulo">
+	<div id="titulo">Ahorcado</div>
+</div>
+  <div id="cb"></div>
+  <div id="cue"></div>
+  <div id="brazos"></div>
+  <div id="p-i"></div>
+  <div id="p-d"></div>
+  <div class="palabra">
+    <div class="guion" id="g0">-</div>
+    <div class="guion" id="g1">-</div>
+    <div class="guion" id="g2">-</div>
+    <div class="guion" id="g3">-</div>
+    <div class="guion" id="g4">-</div>
+    <div class="guion" id="g5">-</div>
+    <div class="guion" id="g6">-</div>
+  </div>
+  <div>
+    <input type="text" id="letra" placeholder="Inserte letra">
+    <button class="btn">Buscar</button>
+  </div>
+</body>
+</html>
+
+<script>
+   $(document).ready(function(){
+
+    $('#cb,#cue,#brazos,#p-i,#p-d').css('opacity','0');//esconde el monito
+    $('#letra').focus();//para que escriba rapido en el textbox
+
+    var letra2 = document.getElementById("letra");
+    //var letra_escondida =[];
+    //var espacio_letra = document.getElementById("letra2");
+    var vidas = 5;
+    var muertes = 1;
+
+    //$(".palabra div").css('opacity','0');
+
+    var palabra = obtener_palabra();
+   	//alert(palabra);
+    //var palabra = 'manzana';
+            //para determinar el numero de guiones
+            if (palabra == 'fresa' || palabra == 'melon' || palabra == 'raton') {
+              $('#g6,#g5').css('opacity','0');
+            }
+            if (palabra == 'pera' || palabra == 'gato') {
+              $('#g6,#g5,#g4').css('opacity','0');
+            }
+      
+        $(".btn").click(function(){
+          //alert(palabra.indexOf($("#letra").val()));
+          
+          //para ir mostrando cada parte del cuerpo
+          console.log(vidas);
+          if ( palabra.indexOf($("#letra").val()) == -1 ){
+            vidas = vidas - 1;
+          }
+          if (vidas == 4) {
+            $('#cb').css('opacity','100');
+          }
+          if (vidas == 3) {
+            $('#cue').css('opacity','100');
+          }
+          if (vidas == 2) {
+            $('#brazos').css('opacity','100');
+          }
+          if (vidas == 1) {
+            $('#p-i').css('opacity','100');
+          }
+          if (vidas == 0) {
+            $('#p-d').css('opacity','100');
+            alert('Has perdido');
+          }
+          //alert(palabra.substr(6,1));
+          //for (var i = 0; i <= 6; i++) {
+            //var letra = palabra.substr(i,1);
+            //if ($('#letra').val() == letra) {}
+
+              //con el indexof() obtengo la poscision de la letra y con el substr() devuelvo la letra de la cadena
+            if (palabra.indexOf($("#letra").val()) == 0) {
+              $('#g0').html(palabra.substr(0,1));
+            }
+            if (palabra.indexOf($("#letra").val()) == 1) {
+              $('#g1').html(palabra.substr(1,1));
+            }
+            if (palabra.indexOf($("#letra").val()) == 2) {
+              $('#g2').html(palabra.substr(2,1));
+            }
+            if (palabra.indexOf($("#letra").val()) == 3) {
+              $('#g3').html(palabra.substr(3,1));
+            }
+            if (palabra.indexOf($("#letra").val()) == 4) {
+              $('#g4').html(palabra.substr(4,1));
+            }
+            if (palabra.indexOf($("#letra").val()) == 5) {
+              $('#g5').html(palabra.substr(5,1));
+            }
+            if (palabra.indexOf($("#letra").val()) == 6) {
+              $('#g6').html(palabra.substr(6,1));
+            }
+
+
+            /*if ($('#g0') != "-" && $('#g1') != "-" && $('#g2') != "-" && $('#g3') != "-" && $('#g4') != "-" && $('#g5') != "-" && $('#g6') != "-") {
+              alert('Felicidades\nGanaste');
+            }*/
+          
+
+          $('#letra').val('');//limpia el textbox
+          $('#letra').focus();
+
+        })
+      
+        //alert($("#letra").val());
+        //alert(palabra); 
+    });
+   	  
+      
+      function obtener_palabra(){
+        var palabras = ['pera', 'gato', 'hormiga','raton', 'fresa', 'melon'];
+        var num = Math.floor(Math.random()*5);
+        console.log(palabras[num]);
+        return palabras[num];
+      }
+
+    /*function obtener_num(min,max){
+    	return Math.random()*(min - max)+ min;
+    }*/
+
+    /*function comparar() {
+    	if (letra2=) {
+      }
+    }*/
+   
+</script>
+<!--random = (Math.random() * todas_palabras).toFixed(0);-->

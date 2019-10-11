@@ -1,0 +1,86 @@
+#rectangulo{
+    position: absolute;
+    background: pink;
+    width: 1370px;
+    height: 100px; 
+    margin-top: -15px;
+    left: -5px;
+}
+#titulo{
+    position: absolute;
+    margin-top: 5px;
+    color: black;
+    font-family: helvetica;
+    font-size: 85px;
+    left: 500px;
+}
+#cb
+{
+  margin-top: 170px;
+  left:140px;
+  width: 50px;
+  height: 50px;
+  border-radius: 100px;
+  background-color: black;
+  position: absolute;
+}
+#cue
+{
+  position: absolute;
+  right: 1200px;
+  width: 5px;
+  height: 90px;
+  background-color: black;
+  margin-top: 220px;
+}
+#brazos
+{
+  right: 1140px;
+  width:120px;
+  height:5px;
+  background-color:black;
+  margin-top:240px;
+ position:absolute;
+}
+#p-d
+{
+  right: 1220px;
+  width:5px;
+  height:90px;
+  transform:rotate(25deg);
+  background-color:black;
+  margin-top:300px;
+ position:absolute; 
+}
+#p-i
+{
+  right: 1180px;
+  width:5px;
+  height:90px;
+  transform:rotate(-25deg);
+  background-color:black;
+  margin-top:300px;
+ position:absolute;
+}
+#letra{
+  right:1000px; 
+  width:90px;
+  height:30px; 
+  font-size: 15px;
+  margin-top:500px;
+  position: absolute;
+}
+
+.btn{
+  position: absolute;
+  margin-top: 510px;
+  margin-left: 350px;
+}
+
+.palabra{
+  position: absolute;
+  display: flex;
+  font-size: 100px;
+  margin-top: 300px;
+  margin-left: 300px;
+}
